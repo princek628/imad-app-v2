@@ -3,6 +3,7 @@ body {
    /*background-color: lightgrey;*/
     margin-top: 75px;
     background-image: url("http://webdesignerdepot.s3.amazonaws.com/default-images/25.jpg");
+    
 }
 
 .center {
@@ -19,7 +20,7 @@ body {
 
 .img-medium {
     height: 200px;
-    float: left;
+    
 }
     .container{
                        max-width: 800px;
