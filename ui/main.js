@@ -17,9 +17,6 @@ img.onclick=function(){
 //counter code
 
 var button=document.getElementById('counter');
-
-button.onclick=function()
-{
     var request=new XMLHttpREquest();
     //capture the response and store in a variable
     request.onreadystatechange=function()
