@@ -31,10 +31,13 @@ button.onclick=function()
            var span=document.getElementById('count');
            span.innerHTML=counter.toString();
            
+           
         }
         }
         
     };
+    request.open('GET','iyushrj100.imad.hasura-app.io/counter',true);
+    request.send(null);
     
    // counter=counter+1;
 
