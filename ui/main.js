@@ -36,7 +36,7 @@ button.onclick=function()
         }
         
     };
-    request.open('GET','iyushrj100.imad.hasura-app.io/counter',true);
+    request.open('GET','piyushrj100.imad.hasura-app.io/counter',true);
     request.send(null);
     
    // counter=counter+1;
