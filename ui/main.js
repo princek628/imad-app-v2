@@ -55,15 +55,7 @@ submit.onclick=function(){
         if(request.status===200){
          //capture a list of names and render it on the list
     var names=request.responseText;
-    names=JSON.parse(names);
-    var list='';
-    for(var i=0;i<names.length;i++){
-        list+='<li>'+names[i]+'</li>';
-    }
-    var ul=document.getElementById('namelist');
-    ul.innerHTML=list;
-        }
-        }
+   
         
     };
     //make the request
