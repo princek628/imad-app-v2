@@ -92,6 +92,7 @@ function hash(input,salt){
 app.get('/hash/:input',function(req,res){
     var hashString=hash(req.params.input,'this-is-some-random-string');
     res.send(hashString);
+});
     app.post('/create-user',function(req,res){
        //username password
        var username = req.body.username;
@@ -106,7 +107,7 @@ app.get('/hash/:input',function(req,res){
         }  
        });
     });
-});
+
 var pool = new Pool(config);
 app.get('/test-db',function(req,res){
     //make a select request
