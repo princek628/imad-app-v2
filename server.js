@@ -2,7 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool = require('pg').Pool;
-var crypto=require('crypto');
+var crypto = require('crypto');
 
 var config={
     user:'piyushrj100',
@@ -88,7 +88,7 @@ function hash(input,salt){
     return hashed.toString('hex');
 }
 app.get('/hash/:input',function(req,res){
-    var hashString=hash(req.param.input,'this is some random string');
+    var hashString=hash(req.params.input,'this is some random string');
     res.send(hashedString);
 });
 var pool = new Pool(config);
