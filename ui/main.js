@@ -16,7 +16,7 @@ img.onclick=function(){
 };*/
 //counter code
 
-var button=document.getElementById('counter');
+/*var button=document.getElementById('counter');
 
 button.onclick=function()
 {
@@ -37,12 +37,12 @@ button.onclick=function()
         
     };
     request.open('GET','http://piyushrj100.imad.hasura-app.io/counter',true);
-    request.send(null);
+    request.send(null);*/
     
    // counter=counter+1;
    
 
-};
+//};
 
 var submit=document.getElementById('submit_btn');
 submit.onclick=function(){
@@ -54,24 +54,34 @@ submit.onclick=function(){
         //take some action.
         if(request.status===200){
          //capture a list of names and render it on the list
-    var names=request.responseText;
+         consol.log('user logged in');
+         alert('Logged in successfully');
+        }else if(request.status===403){
+            alert('Username/password is wrong');
+        }else if(request.status===500){
+            alert('Something went wrong');
+        }
+   /* var names=request.responseText;
     names=JSON.parse(names);
     var list='';
     for(var i=0;i<names.length;i++){
         list+='<li>'+names[i]+'</li>';
     }
     var ul=document.getElementById('namelist');
-    ul.innerHTML=list;
+    ul.innerHTML=list;*/
         }
-        }
+    
         
     };
     //make the request
-    var nameInput=document.getElementById('name');
-var name=nameInput.value;
+    //var nameInput=document.getElementById('name');
+//var name=nameInput.value;
+var username= document.getElementById('username').value;
+var password= document.getElementById('password').value;
     
-    request.open('GET','http://piyushrj100.imad.hasura-app.io/submit-name?name='+name,true);
-    request.send(null);
+    request.open('POST','http://piyushrj100.imad.hasura-app.io/login', true);
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send(JSON.stringify({username: username, password: password}));
    
     
     
