@@ -1,7 +1,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var Pool = require('pg').Pool;
+//var Pool = require('pg').Pool;
 var crypto = require('crypto');
 var bodyParser= require('body-parser');
 var session= require('express-session');
@@ -106,19 +106,19 @@ app.get('/hash/:input',function(req,res){
        var password = req.body.password;
        var salt=crypto.randomBytes(128).toString('hex');
        var dbString = hash(password,salt);
-       pool.query('INSERT INTO  "user" (username,password) VALUES ($1, $2)', [username, dbString], function (err, result){
+       /*pool.query('INSERT INTO  "user" (username,password) VALUES ($1, $2)', [username, dbString], function (err, result){
          if(err){
             res.status(500).send(err.toString());
         }else{
             res.send('User successfully created: ' +username);
         }  
-       });
+       });*/
     });
 app.post('/login', function(req,res){
     var username = req.body.username;
        var password = req.body.password;
        
-       pool.query('SELECT * from "user" WHERE username =$1', [username], function (err, result){
+       /*pool.query('SELECT * from "user" WHERE username =$1', [username], function (err, result){
          if(err){
             res.status(500).send(err.toString());
         }else{
@@ -139,7 +139,7 @@ app.post('/login', function(req,res){
            
         } 
         }
-       });
+       });*/
 });
 app.get('/check-login',function(req,res){
    if(req.session && req.session.auth && req.session.auth.userId){
@@ -155,7 +155,7 @@ app.get('/log-out',function(req,res){
   res.send('logged out');
   
 });
-var pool = new Pool(config);
+/*var pool = new Pool(config);
 app.get('/test-db',function(req,res){
     //make a select request
     //return the request with the results
@@ -166,7 +166,7 @@ app.get('/test-db',function(req,res){
             res.send(JSON.stringify(result));
         }
     });
-});
+});*/
 var counter=0;
 app.get('/counter',function(req,res){
     counter=counter+1;
@@ -178,7 +178,7 @@ app.get('/submit-name', function(req,res){
     names.push(name);
     res.send(JSON.stringify(names));
 });
-app.get('/articles/:articleName',function(req,res){
+/*app.get('/articles/:articleName',function(req,res){
    // var articleName=req.params.articleName;
     pool.query("SELECT * FROM article  WHERE title=$1",[req.params.articleName],function(err,result){
         if(err){
@@ -194,7 +194,7 @@ app.get('/articles/:articleName',function(req,res){
         }
     });
  
-});
+});*/
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
