@@ -13,7 +13,7 @@ var session= require('express-session');
     port:'5432',
     password:process.env.DB_PASSWORD
 };*/
-var app = express();
+//var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(session({
